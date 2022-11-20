@@ -38,6 +38,7 @@ lvim.plugins = {
   "jose-elias-alvarez/typescript.nvim",
   "mxsdev/nvim-dap-vscode-js",
   "petertriho/nvim-scrollbar",
+  "rebelot/kanagawa.nvim",
   {
     "saecki/crates.nvim",
     tag = "v0.3.0",
