@@ -1,6 +1,11 @@
 -- Additional Plugins
 lvim.plugins = {
   "ellisonleao/gruvbox.nvim",
+  "rebelot/kanagawa.nvim",
+  "lunarvim/darkplus.nvim",
+  "NvChad/nvim-colorizer.lua",
+  "EdenEast/nightfox.nvim",
+
   "nvim-treesitter/playground",
   "nvim-treesitter/nvim-treesitter-textobjects",
   "p00f/nvim-ts-rainbow",
@@ -12,7 +17,6 @@ lvim.plugins = {
   "kylechui/nvim-surround",
   "christianchiarulli/harpoon",
   "MattesGroeger/vim-bookmarks",
-  "NvChad/nvim-colorizer.lua",
   "ghillb/cybu.nvim",
   "moll/vim-bbye",
   "folke/todo-comments.nvim",
@@ -23,7 +27,6 @@ lvim.plugins = {
   "mattn/webapi-vim",
   "folke/zen-mode.nvim",
   "lvimuser/lsp-inlayhints.nvim",
-  "lunarvim/darkplus.nvim",
   "lunarvim/templeos.nvim",
   "kevinhwang91/nvim-bqf",
   "is0n/jaq-nvim",
@@ -39,7 +42,6 @@ lvim.plugins = {
   "jose-elias-alvarez/typescript.nvim",
   "mxsdev/nvim-dap-vscode-js",
   "petertriho/nvim-scrollbar",
-  "rebelot/kanagawa.nvim",
   {
     "saecki/crates.nvim",
     tag = "v0.3.0",
@@ -89,6 +91,26 @@ lvim.plugins = {
         },
       }
     end,
+  },
+
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  },
+
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "BufRead",
+    config = function() require "lsp_signature".on_attach() end,
+  },
+
+  {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require('symbols-outline').setup()
+    end
   },
   -- "MunifTanjim/nui.nvim",
   -- {

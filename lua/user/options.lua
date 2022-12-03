@@ -1,4 +1,5 @@
 lvim.colorscheme = "darkplus"
+lvim.format_on_save = "true"
 lvim.log.level = "warn"
 lvim.builtin.alpha.active = true
 lvim.lsp.diagnostics.float.focusable = true
@@ -34,6 +35,7 @@ lvim.builtin.cmp.formatting.source_names = {
 -- vim.g.netrw_banner = 0
 -- vim.g.netrw_winsize = 25
 vim.opt.showtabline = 0
+vim.o.guifont = "JetBrainsMono Nerd Font"
 
 local options = {
   backup = false, -- creates a backup file
