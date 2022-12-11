@@ -6,7 +6,6 @@ lvim.plugins = {
   "NvChad/nvim-colorizer.lua",
   "EdenEast/nightfox.nvim",
   "catppuccin/nvim",
-  'folke/tokyonight.nvim',
 
   "nvim-treesitter/playground",
   "nvim-treesitter/nvim-treesitter-textobjects",
@@ -74,28 +73,6 @@ lvim.plugins = {
     run = "cd js && npm ci",
   },
   { "tzachar/cmp-tabnine", run = "./install.sh" },
-  {
-    "zbirenbaum/copilot.lua",
-    -- event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup {
-          plugin_manager_path = os.getenv "LUNARVIM_RUNTIME_DIR" .. "/site/pack/packer",
-        }
-      end, 100)
-    end,
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup {
-        formatters = {
-          insert_text = require("copilot_cmp.format").remove_existing,
-        },
-      }
-    end,
-  },
 
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -115,6 +92,9 @@ lvim.plugins = {
     config = function()
       require('symbols-outline').setup()
     end
+  },
+  {
+    "github/copilot.vim",
   },
   -- "MunifTanjim/nui.nvim",
   -- {
