@@ -84,18 +84,42 @@ lvim.plugins = {
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
-    config = function() require "lsp_signature".on_attach() end,
+    config = function()
+      require("lsp_signature").on_attach()
+    end,
   },
 
   {
     "simrat39/symbols-outline.nvim",
     config = function()
-      require('symbols-outline').setup()
-    end
+      require("symbols-outline").setup()
+    end,
   },
   {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
+    -- event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup {
+          plugin_manager_path = os.getenv "LUNARVIM_RUNTIME_DIR" .. "/site/pack/packer",
+        }
+      end, 100)
+    end,
   },
+  {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup {
+        formatters = {
+          insert_text = require("copilot_cmp.format").remove_existing,
+        },
+      }
+    end,
+  },
+  -- {
+  --   "github/copilot.vim",
+  -- },
   -- "MunifTanjim/nui.nvim",
   -- {
   --   "folke/noice.nvim",

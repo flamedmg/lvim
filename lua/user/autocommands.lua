@@ -7,42 +7,6 @@
 --   end,
 -- })
 
-local augroup = vim.api.nvim_create_augroup
-ThePrimeagenGroup = augroup('ThePrimeagen', {})
-
-local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup('HighlightYank', {})
-
-function R(name)
-    require("plenary.reload").reload_module(name)
-end
-
-autocmd('TextYankPost', {
-    group = yank_group,
-    pattern = '*',
-    callback = function()
-        vim.highlight.on_yank({
-            higroup = 'IncSearch',
-            timeout = 40,
-        })
-    end,
-})
-
-autocmd({"BufEnter", "BufWinEnter", "TabEnter"}, {
-    group = ThePrimeagenGroup,
-    pattern = "*.rs",
-    callback = function()
-        require("lsp_extensions").inlay_hints{}
-    end
-})
-
-autocmd({"BufWritePre"}, {
-    group = ThePrimeagenGroup,
-    pattern = "*",
-    command = "%s/\\s\\+$//e",
-})
-
-
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
     "Jaq",
@@ -58,9 +22,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   },
   callback = function()
     vim.cmd [[
-      nnoremap <silent> <buffer> q :close<CR> 
-      nnoremap <silent> <buffer> <esc> :close<CR> 
-      set nobuflisted 
+      nnoremap <silent> <buffer> q :close<CR>
+      nnoremap <silent> <buffer> <esc> :close<CR>
+      set nobuflisted
     ]]
   end,
 })
@@ -70,8 +34,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
     vim.cmd [[
       nnoremap <silent> <buffer> <m-r> :close<CR>
-      " nnoremap <silent> <buffer> <m-r> <NOP> 
-      set nobuflisted 
+      " nnoremap <silent> <buffer> <m-r> <NOP>
+      set nobuflisted
     ]]
   end,
 })
@@ -82,10 +46,10 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     local buf_ft = vim.bo.filetype
     if buf_ft == "" or buf_ft == nil then
       vim.cmd [[
-      nnoremap <silent> <buffer> q :close<CR> 
-      " nnoremap <silent> <buffer> <c-j> j<CR> 
-      " nnoremap <silent> <buffer> <c-k> k<CR> 
-      set nobuflisted 
+      nnoremap <silent> <buffer> q :close<CR>
+      " nnoremap <silent> <buffer> <c-j> j<CR>
+      " nnoremap <silent> <buffer> <c-k> k<CR>
+      set nobuflisted
     ]]
     end
   end,

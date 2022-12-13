@@ -1,11 +1,12 @@
 lvim.colorscheme = "darkplus"
-lvim.format_on_save = "true"
+lvim.format_on_save = true
 lvim.log.level = "warn"
 lvim.builtin.alpha.active = true
+lvim.reload_config_on_save = true
 lvim.lsp.diagnostics.float.focusable = true
 lvim.transparent_window = true
-lvim.builtin.autopairs.active =  false
-lvim.builtin.illuminate.active = false
+lvim.builtin.autopairs.active = true
+lvim.builtin.illuminate.active = true -- changed
 lvim.builtin.bufferline.active = false
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
@@ -22,16 +23,16 @@ lvim.builtin.cmp.window.completion = {
 }
 lvim.builtin.cmp.formatting.source_names = {
   nvim_lsp = "",
-  emoji = "",
   path = "",
   calc = "",
+  copilot = "",
   cmp_tabnine = "",
   vsnip = "",
   luasnip = "",
   buffer = "",
   tmux = "",
-  copilot = "",
   treesitter = "",
+  emoji = "",
 }
 -- vim.g.netrw_browse_split = 0
 -- vim.g.netrw_banner = 0
